@@ -1,0 +1,11 @@
+<FilesMatch "\.(html)$">
+Header set Cache-Control "max-age=0, private, must-revalidate"
+</FilesMatch>
+
+<FilesMatch "\.(manifest|appcache)$">
+Header set Cache-Control "no-cache, max-age=0"
+</FilesMatch>
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
