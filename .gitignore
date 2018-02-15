@@ -7,10 +7,12 @@ yarn-error.log*
 /test/unit/coverage/
 
 # Editor directories and files
-.idea
 .vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 /public/*
+
+/.idea/
+/.idea

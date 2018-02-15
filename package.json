@@ -1,8 +1,8 @@
 {
-  "name": "vue-cli",
+  "name": "web-tools",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "WangSF <wangsf@shinetechchina.com>",
+  "description": "A set of tools that can be used offline.",
+  "author": "gexingw <wolfs_9@hotmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
