@@ -3,16 +3,25 @@ CACHE MANIFEST
 
 CACHE:
 /index.html
-js/manifest.71f827e2739eb8d460c1.js
-js/vendor.f60033a5882a22c586b1.js
-js/app.3fbc15d9910cc3d2f057.js
-js/0.180678690fe2c756de16.js
-js/1.436abf202e55f936e798.js
-js/2.7d171957e0a60bf09808.js
-js/3.2327c5f6ff2055a79472.js
-js/4.3f14ffcc45a18ed3d312.js
-js/5.9d3b2c2cdab82434e1c2.js
+js/manifest.5018488beb1cef136bf9.js
+js/vendor.e62abd5b7baaa6768a1a.js
+js/app.5f3d7337099d51275343.js
+js/0.ef4d1f1f44e6640ca324.js
+js/1.aa5d5556d357c133f522.js
+js/2.7e0dcc8c2fc7ff7e8425.js
+js/3.3eb8fe6151dd9c8196a1.js
+js/4.cc2bce984da1d3e55da5.js
+js/5.1867699dd134f83d1e2d.js
+js/6.3a484e381986cf7b4f53.js
+
 css/app.3a05b75b9d4a0a2cce50b3bb76453c89.css
+
+fonts/fontawesome-webfont.674f50d.eot
+fonts/fontawesome-webfont.af7ae50.woff2
+fonts/fontawesome-webfont.b06871f.ttf
+fonts/fontawesome-webfont.fee66e7.woff
+
+img/fontawesome-webfont.912ec66.svg
 
 NETWORK:
 *

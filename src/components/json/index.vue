@@ -2,7 +2,7 @@
   <div class="tools-json">
     <div class="form-group">
       <label for="encode-str">待解析数据</label>
-      <textarea class="form-control" id="encode-str" rows="6" v-model="sourceStr"></textarea>
+      <textarea class="form-control" id="encode-str" rows="6" v-model="source"></textarea>
     </div>
     <div class="form-group text-center">
       <button type="submit" class="btn btn-outline-primary" @click="decode">
@@ -10,30 +10,36 @@
         解析
         <i class="fa fa-long-arrow-down"></i>
       </button>
+
+      <button type="submit" class="btn btn-outline-info clip"
+              :data-clipboard-text="source">
+        <i class="fa fa-clipboard"></i>
+        复制结果
+      </button>
     </div>
     <div class="form-group">
       <label>解析后数据</label>
-      <pre class="alert-info border border-warning rounded">{{ formatStr }}</pre>
+      <pre class="alert-info border border-warning rounded">{{ result }}</pre>
     </div>
   </div>
 </template>
 <script type="javascript">
+  import Clipboard from 'clipboard'
+
   export default {
     data () {
       return {
-        sourceStr: '',
-        decodeStr: '',
-        formatStr: '',
+        source: '',
+        result: '',
+        clip: null,
       }
     },
-    computed: {
-      _decodeStr () {
-        return this.sourceStr
-      }
+    mounted () {
+      this.clip = new Clipboard('.clip')
     },
     methods: {
       decode () {
-        this.formatStr = JSON.parse(this.sourceStr)
+        this.result = JSON.parse(this.source)
       },
     }
   }

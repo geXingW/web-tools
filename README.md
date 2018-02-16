@@ -1,10 +1,18 @@
-# vue-cli
+# WEB TOOLS
 
-> A Vue.js project
+> A set of tools that can be used offline.
+> 一个可以离线访问的WEB工具站。
 
-## Build Setup
+
+## 线上访问
+> http://tools.congcnn.com
+
+## 搭建本地环境
 
 ``` bash
+# pull or download this project
+git pull
+
 # install dependencies
 npm install
 
@@ -19,9 +27,17 @@ npm run build --report
 
 # run unit tests
 npm run unit
-
-# run all tests
-npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## todo list
+
+- [ ] Finished
+    - [x] Base64加/解密
+    - [x] JSON解析
+    - [x] URL解码
+    - [x] URL解码
+    - [x] EXCEL/CSV解析 
+- [ ] TODO
+    - [ ] 图片处理
+
+

@@ -45,12 +45,12 @@
                 <table class="table table-striped">
                   <thead>
                   <tr>
-                    <th v-for="c in cols[index]" :key="c.key">{{c.name}}</th>
+                    <th v-for="c in htmlCols[index]" :key="c.key">{{c.name}}</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="(r, key) in contents[index]" :key="key">
-                    <td v-for="c in cols[index]" :key="c.key"> {{ r[c.key] }}</td>
+                  <tr v-for="(r, key) in htmlData[index]" :key="key">
+                    <td v-for="c in htmlCols[index]" :key="c.key"> {{ r[c.key] }}</td>
                   </tr>
                   </tbody>
                 </table>
@@ -92,26 +92,77 @@
   export default {
     data () {
       return {
-        jsonData: ['SheetJS'.split(''), '1234567'.split('')],
         cols: [],
         SheetJSFT: _SheetJSFT,
         type: null,
         sheetNames: [],
         htmlActiveTab: 0,
         contents: [],
+
+        file: null,
+        reader: null,
+
+        // Html
+        htmlData: [],
+        htmlCols: [],
+
+        // JSON
+        jsonData: [],
         jsonCols: [],
       }
+    },
+    mounted () {
+      this.reader = new FileReader()
     },
     methods: {
       decodeJSON () {
         this.type = 'JSON'
+        try {
+          if (!this.reader) return
+
+          this.reader.onload = (e) => {
+            let bstr = e.target.result
+            let wb = XLSX.read(bstr, {type: 'binary'})
+            this.sheetNames = wb.SheetNames
+            let ws = wb.Sheets[wb.SheetNames[0]]
+            this.jsonData = XLSX.utils.sheet_to_json(ws, {header: 1, origin: 'A1'})
+            this.jsonCols = makeCols(ws['!ref'])
+          }
+
+          this.reader.readAsBinaryString(this.file)
+        } catch (err) {
+          eRep(err)
+        }
       },
       decodeHTML () {
         this.type = 'HTML'
+        try {
+          if (!this.reader) return
+
+          this.reader.onload = (e) => {
+            let bstr = e.target.result
+            let wb = XLSX.read(bstr, {type: 'binary'})
+            /* Get first worksheet */
+            this.sheetNames = wb.SheetNames
+
+            for (let i = 0; i < this.sheetNames.length; i++) {
+              let wsname = wb.SheetNames[i]
+              let ws = wb.Sheets[wsname]
+              let item = XLSX.utils.sheet_to_json(ws, {header: 1, origin: 'A1'})
+              this.htmlData[i] = item
+              this.htmlCols[i] = makeCols(ws['!ref'])
+            }
+          }
+
+          this.reader.readAsBinaryString(this.file)
+        } catch (err) {
+          eRep(err)
+        }
       },
       fileChange (evt) {
         const files = evt.target.files
-        if (files && files[0]) this._file(files[0])
+        this.file = files && files[0] ? files[0] : this.file
+        // if (files && files[0]) this._file(files[0])
       },
       _file (file) {
         try {
@@ -128,7 +179,7 @@
               let wsname = wb.SheetNames[i]
               let ws = wb.Sheets[wsname]
               let content = XLSX.utils.sheet_to_json(ws, {header: 1, origin: 'A1'})
-              this.contents[i] = content
+              this.htmlData[i] = content
               this.cols[i] = makeCols(ws['!ref'])
             }
 
