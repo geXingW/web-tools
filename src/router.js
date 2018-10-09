@@ -28,6 +28,11 @@ let urlDecodeRoutes = [
     component: _ => import('components/excel/index')
   },
   {
+    path: '/ip',
+    name: 'ip',
+    component: _ => import('components/ip/index')
+  },
+  {
     path: '*',
     name: '404',
     component: _ => import('components/404.vue')

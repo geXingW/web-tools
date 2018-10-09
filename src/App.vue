@@ -25,9 +25,12 @@
               <a class="nav-link" :href="`/#/excel`">EXCEL/CSV解析</a>
             </li>
           </ul>
+
+          <!-- 站内搜索 -->
           <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Search">
+            <input class="form-control" type="text" placeholder="占个位置">
           </form>
+
         </div>
       </nav>
     </header>
