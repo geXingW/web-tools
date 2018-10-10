@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <el-container style="height: 500px; border: 1px solid #eee">
+    <el-container style="height: 800px; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-menu :default-openeds="['1', '3']">
           <el-menu-item index="1">
@@ -20,20 +20,16 @@
 
       <el-container>
         <el-main>
-          <el-table :data="tableData">
-            <el-table-column prop="date" label="日期" width="140">
-            </el-table-column>
-            <el-table-column prop="name" label="姓名" width="120">
-            </el-table-column>
-            <el-table-column prop="address" label="地址">
-            </el-table-column>
-          </el-table>
+          <!-- IP Parse -->
+          <ip-parse></ip-parse>
         </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 <script>
+  import IpParse from './IpParse'
+
   export default {
     data () {
       const item = {
@@ -42,8 +38,14 @@
         address: '上海市普陀区金沙江路 1518 弄'
       }
       return {
-        tableData: Array(20).fill(item)
+        tableData: Array(2).fill(item)
       }
+    },
+    components: {
+      'ip-parse': IpParse
+    },
+    methods: {
+      // show
     }
   }
 </script>

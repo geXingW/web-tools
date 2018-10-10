@@ -26,7 +26,8 @@
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
     "xlsx": "^0.12.0",
-    "element-ui": "^2.4.8"
+    "element-ui": "^2.4.8",
+    "ip":"^1.1.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
