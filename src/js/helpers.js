@@ -3,6 +3,7 @@ import Store from 'js/store'
 import Http from 'js/http'
 import {ErrDB} from 'js/db'
 import moment from 'moment'
+import IP from 'ip'
 
 export const isOnline = _ => Store.getters.isOnline
 
@@ -53,4 +54,29 @@ export const eRep = err => {
   } else {
     DBReport(errObj)
   }
+}
+
+/**
+ * 计算掩码长度
+ *
+ * @param mask
+ * @returns {number}
+ */
+export const getMaskLength = mask => {
+  // Calculate the mask's length.
+  let maskBuffer = IP.toBuffer(mask)
+  let maskLength = 0
+
+  for (var i = 0; i < maskBuffer.length; i++) {
+    if (maskBuffer[i] === 0xff) {
+      maskLength += 8
+    } else {
+      var octet = maskBuffer[i] & 0xff
+      while (octet) {
+        octet = (octet << 1) & 0xff
+        maskLength++
+      }
+    }
+  }
+  return maskLength
 }

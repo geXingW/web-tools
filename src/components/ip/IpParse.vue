@@ -2,7 +2,7 @@
   <!-- box ./begin -->
   <div class="box">
     <div class="box-header text-center">
-      <h2>网络和IP地址计算器</h2>
+      <h3>网络和IP地址计算器</h3>
     </div>
     <div class="box-body mt-5">
       <form action="">
@@ -47,23 +47,23 @@
         <table class="table">
           <tbody>
           <tr>
-            <th class="text-right">可用地址数：</th>
+            <th class="text-right width-200">可用地址数：</th>
             <th>{{result.numHosts}}</th>
           </tr>
           <tr>
-            <th class="text-right">掩码：</th>
+            <th class="text-right width-200">掩码：</th>
             <th>{{result.subnetMask}}</th>
           </tr>
           <tr>
-            <th class="text-right">网络：</th>
+            <th class="text-right width-200">网络：</th>
             <th>{{result.networkAddress}}</th>
           </tr>
           <tr>
-            <th class="text-right">第一个可用IP：</th>
+            <th class="text-right width-200">第一个可用IP：</th>
             <th>{{result.firstAddress}}</th>
           </tr>
           <tr>
-            <th class="text-right">最后一个可用IP：</th>
+            <th class="text-right width-200">最后一个可用IP ：</th>
             <th>{{result.lastAddress}}</th>
           </tr>
           </tbody>
@@ -101,7 +101,6 @@
           if (!this.ip1IsValid || !this.ip2IsValid || !this.ip3IsValid || !this.ip4IsValid || !this.maskIsValid) {
             return
           }
-
           this.result = IP.cidrSubnet(`${this.ip1}.${this.ip2}.${this.ip3}.${this.ip4}/${this.ipMask}`)
         } catch (e) {
           console.log(e)
@@ -128,6 +127,9 @@
   }
 </script>
 
-<style scoped>
-
+<style>
+  .width-200 {
+    width: 160px;
+    max-width: 200px;
+  }
 </style>

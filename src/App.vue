@@ -24,6 +24,9 @@
             <li class="nav-item">
               <a class="nav-link" :href="`/#/excel`">EXCEL/CSV解析</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" :href="`/#/IP`">网络/IP地址计算器</a>
+            </li>
           </ul>
 
           <!-- 站内搜索 -->

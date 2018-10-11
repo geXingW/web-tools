@@ -7,14 +7,6 @@
             <i class="el-icon-arrow-right"></i>
             <span slot="title">网络和IP地址计算器</span>
           </el-menu-item>
-          <el-menu-item index="2">
-            <i class="el-icon-arrow-right"></i>
-            <span slot="title">IP地址和网络转换器</span>
-          </el-menu-item>
-          <el-menu-item index="3">
-            <i class="el-icon-arrow-right"></i>
-            <span slot="title">子网掩码转换器</span>
-          </el-menu-item>
         </el-menu>
       </el-aside>
 
@@ -22,6 +14,8 @@
         <el-main>
           <!-- IP Parse -->
           <ip-parse></ip-parse>
+          <hr>
+          <mask-length></mask-length>
         </el-main>
       </el-container>
     </el-container>
@@ -29,6 +23,7 @@
 </template>
 <script>
   import IpParse from './IpParse'
+  import MaskLength from './MaskLength'
 
   export default {
     data () {
@@ -42,7 +37,8 @@
       }
     },
     components: {
-      'ip-parse': IpParse
+      IpParse,
+      MaskLength
     },
     methods: {
       // show
